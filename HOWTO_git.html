@@ -181,9 +181,69 @@ pre code {
 </div>
 <div id="step-1-create-a-local-git-repository" class="section level2">
 <h2>Step 1: Create a local git repository</h2>
-<pre class="shell"><code>$ ownCloud/ownCloud_Personal/ownCloud_projects/AG_Cox/github/
+<pre class="shell"><code>$ cd ownCloud/ownCloud_Personal/ownCloud_projects/AG_Cox/github/
 $ mkdir myGit
 $ cd myGit/</code></pre>
+<p>To initialize the git repository, one can use the command line as such</p>
+<pre class="shell"><code>$ git init</code></pre>
+<p>In my case I will use RStudio, which can create a porject already with versioning control using <code>git</code>. It takes an already existing Github repository and uses it, so it doesn’t need to be initialized.</p>
+</div>
+<div id="step-2-add-a-new-file-to-the-repo" class="section level2">
+<h2>Step 2: Add a new file to the repo</h2>
+<p>Here we can add any file we need. Again as I havr already created it via an exiting Github repository, I ahave already a few files in it.</p>
+<pre class="shell"><code>$ ls
+HOWTO_git.Rmd  HOWTO_git.html LICENSE        README.md      myGit.Rproj</code></pre>
+<p>Using <code>git status</code> one can see the status of my git repository and which files in my local folder are known to the repositoy online.</p>
+<pre class="shell"><code>$ git status
+On branch main
+Your branch is up to date with &#39;origin/main&#39;.
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+        HOWTO_git.Rmd
+        HOWTO_git.html
+        myGit.Rproj
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)</code></pre>
+<p>A <code>commit</code> is a record of what changes you have made since the last time you made a commit. Essentially, you make changes to your repo (for example, adding a file or modifying one) and then tell <code>git</code> to put those changes into a <code>commit</code>.</p>
+<p>How do you tell <code>git</code> which files to put into a <code>commit</code>? This is where the <code>staging environment</code> comes in. As seen above, when you make changes to your repo, <code>git</code> notices that a file has changed but won’t do anything with it.</p>
+<p>To add a file to a <code>commit</code>, you first need to add it to the staging environment. To do this, you can use the <code>git add &lt;filename&gt; command</code>.</p>
+</div>
+<div id="step-3-add-a-file-to-the-staging-environment" class="section level2">
+<h2>Step 3: Add a file to the staging environment</h2>
+<p>This is done using the <code>git add</code> command. Again T RStudio takes care of that for you, when one just put the ticks in the Git tab on the left (where is says <code>Staged</code> - this is adding to the staging environment).</p>
+<pre class="shell"><code>$ git add HOWTO_git.*
+
+$ git status
+On branch main
+Your branch is up to date with &#39;origin/main&#39;.
+
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+        new file:   HOWTO_git.Rmd
+        new file:   HOWTO_git.html
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+        myGit.Rproj</code></pre>
+<p>Now, after we added the two files, they are ready to be committed.</p>
+</div>
+<div id="step-4-create-a-commit" class="section level2">
+<h2>Step 4: Create a commit</h2>
+<p>By committing the files to the repository they will be added also on the Github website</p>
+<pre class="shell"><code>$ git commit -m &quot;Adding html files&quot;
+[main aca3ae5] Adding html files
+ 2 files changed, 297 insertions(+)
+ create mode 100644 HOWTO_git.Rmd
+ create mode 100644 HOWTO_git.html</code></pre>
+</div>
+<div id="step-5-create-a-new-branch" class="section level2">
+<h2>Step 5: Create a new branch</h2>
+<p>Ifyou want to make a new feature but are worried about making changes to the main project while developing the feature. This is where git branches come in.</p>
+<p>Branches allow you to move back and forth between ‘states’ of a project. Official git docs describe branches this way:</p>
+<pre><code>A branch in Git is simply a lightweight movable pointer to one of these commits.</code></pre>
+<p>For instance, if you want to add a new page to your website you can create a new branch just for that page without affecting the main part of the project. Once you’re done with the page, you can merge your changes from your branch into the primary branch. When you create a new branch, Git keeps track of which commit your branch ‘branched’ off of, so it knows the history behind all the files.</p>
+<p>Let’s say you are on the primary branch and want to create a new branch to develop your web page. Here’s what you’ll do: Run git checkout -b <my branch name>. This command will automatically create a new branch and then ‘check you out’ on it, meaning git will move you to that branch, off of the primary branch.</p>
 </div>
 
 
