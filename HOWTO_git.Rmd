@@ -1,0 +1,62 @@
+---
+title: "How to work with git"
+author: "AY"
+date: "12/2/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Step 0: Install git and create a GitHub account 
+
+Of course without installing git on your computer and having a git account you cannot use git. so first do this.
+
+- [installing git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [Github account](https://github.com/join)
+
+## Step 1: Create a local git repository 
+
+```shell
+$ cd ownCloud/ownCloud_Personal/ownCloud_projects/AG_Cox/github/
+$ mkdir myGit
+$ cd myGit/
+```
+
+To initialize the git repository, one can use the command line as such
+
+```shell
+$ git init
+```
+
+In my case I will use RStudio, which can create a porject already with versioning control using `git`. It takes an already existing Github repository and uses it, so it doesn't need to be initialized. 
+
+## Step 2: Add a new file to the repo
+
+Here we can add any file we need. Again as I havr already created it via an exiting Github repository, I ahave already a few files in it.
+
+```shell
+$ ls
+HOWTO_git.Rmd  HOWTO_git.html LICENSE        README.md      myGit.Rproj
+```
+
+Using `git status` one can see the status of my git repository and which files in my local folder are known to the repositoy online.
+
+```shell
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        HOWTO_git.Rmd
+        HOWTO_git.html
+        myGit.Rproj
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+
+
+
