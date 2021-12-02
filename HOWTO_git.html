@@ -322,6 +322,19 @@ Merging accepted
 <p>The Github repo is different than the one on the computer. locally I still have two brachens, online the newer one was deleted.</p>
 <p>In order to get the most recent version to the locl machine, one needs to use the <code>git pull</code> command.</p>
 <pre class="shell"><code>git pull origin main</code></pre>
+<p>An now everything is up-to-date both on the local machine as well as in my Github repo.</p>
+<pre class="shell"><code>$ git status
+On branch main
+Your branch is up to date with &#39;origin/main&#39;.
+
+nothing to commit, working tree clean</code></pre>
+</div>
+<div id="step-11-changing-some---config-prameters" class="section level2">
+<h2>Step 11: changing some <code>--config</code> prameters</h2>
+<p>Checking the set parameters can be done with</p>
+<pre class="shell"><code>git config --global --list</code></pre>
+<p>Here I can see my user name, the email address Im using to connect my Github repoitory as well as the default editor used for <code>git</code>.</p>
+<p>A good resource for the <a href="https://swcarpentry.github.io/git-novice/02-setup/">git setting</a>.</p>
 </div>
 
 

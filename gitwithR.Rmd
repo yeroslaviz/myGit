@@ -9,4 +9,24 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## 
+## Creating a HTTPS token
+
+In order to be able to communicate with the git server, it is necessary to create a so-called Token. this token varify the identity of the person trying to connect to the server. 
+
+Using R libraries such as `usethis` and `gitcreds` make it possible to do this from within R. 
+
+```r
+usethis::create_github_token()
+```
+
+will pop-up a new browser windows, where the user can create a new token.
+
+It is always good to give the token a specific name, which will help identify, what it is for and why it was created. 
+
+After the token was created, **remember to copy it first before continuing**. It is not possible to see the token again,s once the page was reloaded.
+
+```r
+gitcreds::gitcreds_set()
+```
+
+Without this token, one cannot communicate with the server, i.e. commiting a `pull` or `push` requests. 

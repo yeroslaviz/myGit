@@ -226,9 +226,17 @@ Your branch is up to date with 'origin/main'.
 nothing to commit, working tree clean
 ```
 
+## Step 11: changing some `--config` prameters
 
+Checking the set parameters can be done with 
 
+```shell 
+git config --global --list
+```
 
+Here I can see my user name, the email address Im using to connect my Github repoitory as well as the default editor used for `git`.
+
+A good resource for the [git setting](https://swcarpentry.github.io/git-novice/02-setup/). 
 
 
 

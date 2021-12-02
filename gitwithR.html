@@ -171,8 +171,16 @@ pre code {
 </div>
 
 
-<div id="section" class="section level2">
-<h2></h2>
+<div id="creating-a-https-token" class="section level2">
+<h2>Creating a HTTPS token</h2>
+<p>In order to be able to communicate with the git server, it is necessary to create a so-called Token. this token varify the identity of the person trying to connect to the server.</p>
+<p>Using R libraries such as <code>usethis</code> and <code>gitcreds</code> make it possible to do this from within R.</p>
+<pre class="r"><code>usethis::create_github_token()</code></pre>
+<p>will pop-up a new browser windows, where the user can create a new token.</p>
+<p>It is always good to give the token a specific name, which will help identify, what it is for and why it was created.</p>
+<p>After the token was created, <strong>remember to copy it first before continuing</strong>. It is not possible to see the token again,s once the page was reloaded.</p>
+<pre class="r"><code>gitcreds::gitcreds_set()</code></pre>
+<p>Without this token, one cannot communicate with the server, i.e. commiting a <code>pull</code> or <code>push</code> requests.</p>
 </div>
 
 
