@@ -57,6 +57,48 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
+A `commit` is a record of what changes you have made since the last time you made a commit. Essentially, you make changes to your repo (for example, adding a file or modifying one) and then tell `git` to put those changes into a `commit`.
+
+How do you tell `git` which files to put into a `commit`? This is where the `staging environment` comes in. As seen above, when you make changes to your repo, `git` notices that a file has changed but won't do anything with it.
+
+To add a file to a `commit`, you first need to add it to the staging environment. To do this, you can use the `git add <filename> command`.
+
+## Step 3: Add a file to the staging environment
+
+This is done using the `git add` command. Again T RStudio takes care of that for you, when one just put the ticks in the Git tab on the left (where is says `Staged` - this is adding to the staging environment).
+
+```shell 
+$ git add HOWTO_git.*
+
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   HOWTO_git.Rmd
+        new file:   HOWTO_git.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        myGit.Rproj
+```
+
+Now, after we added the two files, they are ready to be committed. 
+
+## Step 4: Create a commit
+
+By committing the files to the repository they will be added also on the Github website
+
+```shell
+$ git commit -m "Adding html files"
+[main aca3ae5] Adding html files
+ 2 files changed, 297 insertions(+)
+ create mode 100644 HOWTO_git.Rmd
+ create mode 100644 HOWTO_git.html
+```
+
+
 
 
 
