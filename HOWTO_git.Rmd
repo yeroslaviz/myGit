@@ -133,8 +133,87 @@ Switched to branch 'main'
 Your branch is up to date with 'origin/main'.
 ```
 
+## Step 7: Push a branch to GitHub
+
+Now we'll push the commit in your branch to your new GitHub repo. This allows other people to see the changes you've made. If they're approved by the repository's owner, the changes can then be merged into the primary branch.
+
+First I switch back to the new branch
+
+```shell
+$ git switch my_first_branch
+M       HOWTO_git.Rmd
+M       HOWTO_git.html
+Switched to branch 'my_first_branch'
+```
+
+Then I add and commit the new changes in this branch
+
+```shell
+$ git add HOWTO_git.*
+
+$ git commit -m "modified Rmd file"
+[my_first_branch 73c4924] modified Rmd file
+ 2 files changed, 101 insertions(+), 1 deletion(-)
+```
+
+Now I can push the new changes onto the repository. 
+
+```shell 
+$ git remote add myGit  https://github.com/yeroslaviz/myGit.git
+
+$ git push myGit my_first_branch
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 2.90 KiB | 330.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+remote: 
+remote: Create a pull request for 'my_first_branch' on GitHub by visiting:
+remote:      https://github.com/yeroslaviz/myGit/pull/new/my_first_branch
+remote: 
+To https://github.com/yeroslaviz/myGit.git
+ * [new branch]      my_first_branch -> my_first_branch
+```
+
+The creation of the first branch is automatically shown on my web site
+
+```{r  echo=FALSE, fig.cap="pushing the first branch", fig.align="center", fig.pos="!ht"}
+filename <- file.path("Images/my_first_branch.png")
+if(exists("filename")){
+  knitr::include_graphics(filename)
+}
+```
+
+## Step 8: Create a pull request (PR)
+
+A pull request (or PR) is a way to alert a repo's owners that you want to make some changes to their code. It allows them to review the code and make sure it looks good before putting your changes on the primary branch.
 
 
+```{r, echo=FALSE, fig.show = "hold", out.width = "50%", fig.align = "default", out.height= 250, fig.cap= "Creating a Pull Request (PR)"}
+knitr::include_graphics("Images/request_pull.png") 
+
+knitr::include_graphics("Images/create_pull.png") 
+```
+
+## Step 9: Merge a PR
+
+```{r, echo=FALSE, fig.show = "hold", out.width = "50%", fig.align = "default", fig.cap= "Merging accepted"}
+knitr::include_graphics("Images/accept_pull.png") 
+```
+
+After merging it is a good idea to delete the branch to prevent future chaos with too many branches. 
+
+## Step 10: Get changes on GitHub back to your computer
+
+The Github repo is different than the one on the computer. locally I still have two brachens, online the newer one was deleted. 
+
+In order to get the most recent version to the locl machine, one needs to use the `git pull` command. 
+
+```shell
+git pull origin main
+```
 
 
 
