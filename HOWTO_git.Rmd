@@ -216,6 +216,18 @@ git pull origin main
 ```
 
 
+An now everything is up-to-date both on the local machine as well as in my Github repo.
+
+```shell
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+```
+
+
+
 
 
 
