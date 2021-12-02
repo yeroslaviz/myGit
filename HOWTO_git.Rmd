@@ -98,6 +98,46 @@ $ git commit -m "Adding html files"
  create mode 100644 HOWTO_git.html
 ```
 
+## Step 5: Create a new branch
+
+Ifyou want to make a new feature but are worried about making changes to the main project while developing the feature. This is where git branches come in. 
+
+Branches allow you to move back and forth between 'states' of a project. Official git docs describe branches this way: 
+
+    A branch in Git is simply a lightweight movable pointer to one of these commits.
+
+For instance, if you want to add a new page to your website you can create a new branch just for that page without affecting the main part of the project. Once you're done with the page, you can merge your changes from your branch into the primary branch. When you create a new branch, Git keeps track of which commit your branch 'branched' off of, so it knows the history behind all the files. 
+
+Let's say you are on the primary branch and want to create a new branch to develop your web page. Here's what you'll do: Run `git checkout -b <my branch name>`. This command will automatically create a new branch and then 'check you out' on it, meaning git will move you to that branch, off of the primary branch.
+
+Using this command one can create a new branch and switch to it on-the-fly. 
+```shell 
+$ git checkout -b my_first_branch
+Switched to a new branch 'my_first_branch'
+```
+```shell
+$ git branch
+  main
+* my_first_branch
+```
+
+The `*` symbols shows the active branch.
+
+Switching back to the `main` branch can be done using `switch`
+
+```shell
+$ git switch main
+M       HOWTO_git.Rmd
+M       HOWTO_git.html
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+```
+
+
+
+
+
+
 
 
 
