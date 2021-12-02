@@ -203,7 +203,17 @@ knitr::include_graphics("Images/create_pull.png")
 knitr::include_graphics("Images/accept_pull.png") 
 ```
 
+After merging it is a good idea to delete the branch to prevent future chaos with too many branches. 
 
+## Step 10: Get changes on GitHub back to your computer
+
+The Github repo is different than the one on the computer. locally I still have two brachens, online the newer one was deleted. 
+
+In order to get the most recent version to the locl machine, one needs to use the `git pull` command. 
+
+```shell
+git pull origin main
+```
 
 
 
