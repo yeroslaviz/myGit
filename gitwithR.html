@@ -181,6 +181,99 @@ pre code {
 <p>After the token was created, <strong>remember to copy it first before continuing</strong>. It is not possible to see the token again,s once the page was reloaded.</p>
 <pre class="r"><code>gitcreds::gitcreds_set()</code></pre>
 <p>Without this token, one cannot communicate with the server, i.e. commiting a <code>pull</code> or <code>push</code> requests.</p>
+<p>The token created for this session is called “happygitwithr.com tutorial” and is valid for the next 30 days (expires on Sat, Jan 1 2022).</p>
+<p>After that I will need to generate an ew token.</p>
+<p>When the PAT expires, return to <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a> and click on its Note. (You do label your tokens nicely by use case, right? Right?) At this point, you can optionally adjust scopes and then click “Regenerate token”. You can optionally modify its Expiration and then click “Regenerate token” (again). As before, <strong>copy the PAT to the clipboard</strong>, call <code>gitcreds::gitcreds_set()</code>, and paste!</p>
+<div id="helpful-command-for-token" class="section level3">
+<h3>helpful command for token</h3>
+<pre class="r"><code>usethis::gh_token_help()
+
+usethis::git_sitrep()</code></pre>
+</div>
+</div>
+<div id="connect-rsstudio-to-git-and-github" class="section level1">
+<h1>Connect RsStudio to git and Github</h1>
+<p>Eventhough it is already connected, here aresome steps needed to be done to achieve this.</p>
+<div id="make-a-repo-on-github" class="section level2">
+<h2>Make a repo on github</h2>
+<p>First one need to create a repo on the <a href="https://github.com/">github site</a>. Initialize this repository with “Add a README file”.</p>
+<p>Copy a clone URL to your clipboard. If you’re taking our default advice, copy the HTTPS URL. But if you’re opting for SSH, then make sure to copy the SSH URL.</p>
+</div>
+<div id="clone-the-repository-to-your-computer-via-rstudio." class="section level2">
+<h2>Clone the repository to your computer via RStudio.</h2>
+<p>In RStudio, start a new Project:</p>
+<ul>
+<li><em>File</em> &gt; <em>New Project</em> &gt; <em>Version Control</em> &gt; <em>Git</em>. In “Repository URL”, paste the URL of your new GitHub repository. It will be something like this.</li>
+<li>I suggest you check “Open in new session”, as that’s what you’ll usually do in real life.</li>
+<li>Click “Create Project”.</li>
+</ul>
+</div>
+<div id="make-local-changes-save-commit" class="section level2">
+<h2>Make local changes, save, commit</h2>
+<p>This is mainly just to check if it works, but really necessary, as we will do many changes.</p>
+<p>From RStudio, modify the README.md file, e.g., by adding the line “This is a line from RStudio”. Save your changes.</p>
+<p>Commit these changes to your local repo. How?</p>
+<p>From RStudio:</p>
+<ul>
+<li>Click the “Git” tab in upper right pane.</li>
+<li>Check “Staged” box for README.md.</li>
+<li>If you’re not already in the Git pop-up, click “Commit”.</li>
+<li>Type a message in “Commit message”, such as “Commit from RStudio”.</li>
+<li>Click “Commit”.</li>
+</ul>
+</div>
+<div id="push-your-local-changes-online-to-github" class="section level2">
+<h2>Push your local changes online to GitHub</h2>
+<p>Click the green “Push” button to send your local changes to GitHub.</p>
+</div>
+<div id="confirm-the-local-change-propagated-to-the-github-remote" class="section level2">
+<h2>Confirm the local change propagated to the GitHub remote</h2>
+<p>Go back to the browser. I assume we’re still viewing your new GitHub repo.</p>
+<p>Refresh.</p>
+<p>done</p>
+</div>
+<div id="clean-up" class="section level2">
+<h2>Clean up</h2>
+<p>remove the test repo and delete the local file.</p>
+</div>
+<div id="solving-possible-problems" class="section level2">
+<h2>Solving possible problems</h2>
+<p>If you encounter any problems or even if you have found the appropriate solution - go <a href="https://happygitwithr.com/troubleshooting.html">here</a>.</p>
+</div>
+</div>
+<div id="new-projects" class="section level1">
+<h1>New projects</h1>
+<p>There are several ways to connect a project with github.</p>
+<ul>
+<li>It can be a completely new project, which we first create a repository on Github and than a running it in RStudio.</li>
+<li>or it can be an existing project, which we first want to introduce it to a new gitHub repo.</li>
+<li>on the other hand it can be an RStudio project first, which we want to add to a github repo (so-called “github last”).</li>
+</ul>
+<div id="new-project-github-first" class="section level2">
+<h2>New project, GitHub first</h2>
+<p>This is the preferred method.</p>
+<p>We create a new Project, with the preferred “GitHub first, then RStudio” sequence. Why do we prefer this? Because this method of copying the Project from GitHub to your computer also sets up the local Git repository for immediate pulling and pushing. Under the hood, we are doing <code>git clone</code>.</p>
+<ol style="list-style-type: decimal">
+<li>Make a repo on GitHub</li>
+<li>New RStudio Project via git clone
+<ul>
+<li><em>File</em> &gt; <em>New Project</em> &gt; <em>Version Control</em> &gt; <em>Git</em>.</li>
+<li>In the “repository URL” paste the URL of your new GitHub repository. It will be something like this <a href="https://github.com/yeroslaviz/myGit.git" class="uri">https://github.com/yeroslaviz/myGit.git</a>.</li>
+</ul></li>
+<li>make changes and commit them</li>
+<li>push to the repo</li>
+<li>If changes were make on the github repository online (on Github), one needs to <code>pull</code> the changes to the local folder.</li>
+</ol>
+</div>
+<div id="existing-project-github-first" class="section level2">
+<h2>Existing project, GitHub first</h2>
+<p>This is mainly repeating the steps from before for creating the repository and the local folders. After cloning the repo into the local folder one can just copy-paste the files from the existing projects into the newly created folder.</p>
+<p>After the files are copied, one can marked then im the <em>staged</em> box and <code>commit</code> -&gt; <code>push</code>.</p>
+</div>
+<div id="existing-project-github-last" class="section level2">
+<h2>Existing project, GitHub last</h2>
+<p>This an explicit workflow for connecting an existing local R project to GitHub, when for some reason you cannot or don’t want to do a “GitHub first” workflow.</p>
+</div>
 </div>
 
 
