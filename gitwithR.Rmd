@@ -1,7 +1,7 @@
 ---
 title: "Git with R"
 author: "AY"
-date: "12/2/2021"
+date: "`r format(Sys.time(),'%b %d %Y')`"
 output: 
   html_document:
     keep_md: true
@@ -169,12 +169,64 @@ This can be done in two ways:
 
 The big advantage of having an `.md` file is the ability of Github to present this file in an HTML-similar format. HTML files can be only read in the raw format, which is very user-unfriendly. 
 
-If using the first option, it is always important to not forget also commiting and pushing the folder "repoName_files", which is created when the output file is html, but we still want to keep the `.md` file. This folder must also be uploaded to the Github repository in order for the Markdown file to be shown correctly, including the plots, pictures or images. 
+If using the first option, it is always important to not forget also comiting and pushing the folder "FileName_files", which is created when the output file is html, but we still want to keep the `.md` file. This folder must also be uploaded to the Github repository in order for the Markdown file to be shown correctly, including the plots, pictures or images. 
 
 
-```{r pressure, echo=FALSE}
+```{r pressure, echo=FALSE, comment="test"}
 plot(pressure)
 ```
+
+The plot above is just an example of how the Markdown file creates the folder "gitwithR_files" with the plot image in it. 
+
+
+If we are going to only create a script, we don't need all the overhead of the Rmarkdown, but we can create a `.R` file instead. This file can also be rendered into an HTML format, if needed. 
+
+Onr only need to make a few changes to switch between an RMarkdown and an Rscript. 
+
+```RMarkdown
+Here's some prose in a very special comment. Let's summarize the built-in
+dataset `VADeaths`.
+here is a regular code comment, that will remain as such
+ 
+'```{r}
+summary(VADeaths)
+'```
+
+Here's some more prose. I can use usual markdown syntax to make things
+**bold** or *italics*. Let's use an example from the `dotchart()` help to
+make a Cleveland dot plot from the `VADeaths` data. I even bother to name
+this chunk, so the resulting PNG has a decent name.
+
+'```{r}
+dotchart
+dotchart(VADeaths, main = "Death Rates in Virginia - 1940")
+'```
+```
+
+
+The above example is a standard RMarkdown format, while the one below is the way to modify an Rscript in order for it to be rendered. (the ticks `'` infront of the R code chunk are there so taht it will all be recognized as a comment).
+
+- Anything that’s not R code? Like the YAML and the prose? Protect it with roxygen-style comments: start each line with `#'`.
+- Anything that is R code? Let it exist “as is” as top-level code. That means you’ll need to change the syntax of R chunk headers like so:
+    + Before: ` ```{r setup, include = FALSE} `
+    + After: ` #+ r setup, include = FALSE `
+
+```R
+#' Here's some prose in a very special comment. Let's summarize the built-in
+#' dataset `VADeaths`.
+# here is a regular code comment, that will remain as such
+summary(VADeaths)
+
+#' Here's some more prose. I can use usual markdown syntax to make things
+#' **bold** or *italics*. Let's use an example from the `dotchart()` help to
+#' make a Cleveland dot plot from the `VADeaths` data. I even bother to name
+#' this chunk, so the resulting PNG has a decent name.
+#+ dotchart
+dotchart(VADeaths, main = "Death Rates in Virginia - 1940")
+```
+
+The snippet above was copied to the script file `VADeaths.R` in order to test this.
+
 
 
 
