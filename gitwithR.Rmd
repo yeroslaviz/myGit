@@ -3,9 +3,9 @@ title: "Git with R"
 author: "AY"
 date: "12/2/2021"
 output: 
-#  html_document:
-#    keep_md: true
-  github_document
+  html_document:
+    keep_md: true
+#  github_document
   
 ---
 
