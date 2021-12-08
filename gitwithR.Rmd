@@ -156,9 +156,38 @@ git push --set-upstream origin main
 If not, you can read a more detailed description [here](https://happygitwithr.com/existing-github-last.html).
 
 
+# Rstudio and Markdown scripts
+
+when using RStudio and git with a Github repository, it might be good to also take advantage of the Markdown possibilities of git. Ususally when rendering an HTML file, the `.Rmd` file is converted into a `.md` file which is then converted to HTML, deleting the md file in the process. 
+
+It might be quite useful to keep this file.
+
+This can be done in two ways:
+
+1. either add the option `keep_md: true` to the title of the Rmarkdown file
+2. or knit the file instead in a `output: github_document` instead of an html format. 
+
+The big advantage of having an `.md` file is the ability of Github to present this file in an HTML-similar format. HTML files can be only read in the raw format, which is very user-unfriendly. 
+
+If using the first option, it is always important to not forget also commiting and pushing the folder "repoName_files", which is created when the output file is html, but we still want to keep the `.md` file. This folder must also be uploaded to the Github repository in order for the Markdown file to be shown correctly, including the plots, pictures or images. 
+
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
 
 
 
+
+
+
+
+# Session info
+
+```{r}
+R.version
+sessionInfo()
+```
 
 
 

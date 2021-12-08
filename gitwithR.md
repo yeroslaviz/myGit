@@ -154,9 +154,82 @@ git push --set-upstream origin main
 If not, you can read a more detailed description [here](https://happygitwithr.com/existing-github-last.html).
 
 
+# Rstudio and Markdown scripts
+
+when using RStudio and git with a Github repository, it might be good to also take advantage of the Markdown possibilities of git. Ususally when rendering an HTML file, the `.Rmd` file is converted into a `.md` file which is then converted to HTML, deleting the md file in the process. 
+
+It might be quite useful to keep this file.
+
+This can be done in two ways:
+
+1. either add the option `keep_md: true` to the title of the Rmarkdown file
+2. or knit the file instead in a `output: github_document` instead of an html format. 
+
+The big advantage of having an `.md` file is the ability of Github to present this file in an HTML-similar format. HTML files can be only read in the raw format, which is very user-unfriendly. 
+
+If using the first option, it is always important to not forget also commiting and pushing the folder "repoName_files", which is created when the output file is html, but we still want to keep the `.md` file. This folder must also be uploaded to the Github repository in order for the Markdown file to be shown correctly, including the plots, pictures or images. 
+
+
+![](gitwithR_files/figure-html/pressure-1.png)<!-- -->
 
 
 
+
+
+
+
+# Session info
+
+
+```r
+R.version
+```
+
+```
+##                _                           
+## platform       x86_64-apple-darwin17.0     
+## arch           x86_64                      
+## os             darwin17.0                  
+## system         x86_64, darwin17.0          
+## status                                     
+## major          4                           
+## minor          1.0                         
+## year           2021                        
+## month          05                          
+## day            18                          
+## svn rev        80317                       
+## language       R                           
+## version.string R version 4.1.0 (2021-05-18)
+## nickname       Camp Pontanezen
+```
+
+```r
+sessionInfo()
+```
+
+```
+## R version 4.1.0 (2021-05-18)
+## Platform: x86_64-apple-darwin17.0 (64-bit)
+## Running under: macOS Big Sur 10.16
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## loaded via a namespace (and not attached):
+##  [1] digest_0.6.29      R6_2.5.1           lifecycle_1.0.1    jsonlite_1.7.2    
+##  [5] magrittr_2.0.1     evaluate_0.14      highr_0.9          rlang_0.4.12      
+##  [9] stringi_1.7.6      jquerylib_0.1.4    bslib_0.3.1        vctrs_0.3.8       
+## [13] rmarkdown_2.11     tools_4.1.0        stringr_1.4.0.9000 glue_1.5.1        
+## [17] xfun_0.28          yaml_2.2.1         fastmap_1.1.0      compiler_4.1.0    
+## [21] htmltools_0.5.2    knitr_1.36         sass_0.4.0
+```
 
 
 
