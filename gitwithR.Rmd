@@ -124,13 +124,35 @@ We create a new Project, with the preferred “GitHub first, then RStudio” seq
 
 ## Existing project, GitHub first
 
-This is mainly repeating the steps from before for creating the repository and the local folders. After cloning the repo into the local folder one can just copy-paste the files from the existing projects into the newly created folder.
+This is mainly repeating the steps from before for creating the repository on the github website and cloning it to a local folder. After cloning the repo one can just copy-paste the files from the existing projects into the newly created folder.
 
 After the files are copied, one can marked then im the _staged_ box and `commit` -> `push`.
 
 ## Existing project, GitHub last
 
 This an explicit workflow for connecting an existing local R project to GitHub, when for some reason you cannot or don’t want to do a “GitHub first” workflow.
+
+When does this come up? 
+
+Example: it’s an existing project that is already a Git repo with a history you care about. Then you have to do this properly.
+
+Here we have several methods, depending on the fact if we're using the RStudio IDE and/or the `usethis` package. It is a straightforward process which can be confusing, but if done in the correct order should cause many problems. 
+
+1. make sure you ahve a local project prepared with RStudio or create one using the `usethis::create_project()` command. 2. make and verify that you have a git repo with either the RStudio parameters or with the command `usethis::git_init()`.
+3. stage and commit
+4. connect the repo with Github.  This can be done with either the command `usethis::use_github()` or bith the help of the git command, after creating a repo online and copying the path to the repo.
+
+```shell
+git remote add origin https://github.com/jennybc/myrepo.git
+git push --set-upstream origin main
+```
+
+5. refresh the browser to see, if all went well. 
+
+If not, you can read a more detailed description [here](https://happygitwithr.com/existing-github-last.html).
+
+
+
 
 
 

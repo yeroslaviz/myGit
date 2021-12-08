@@ -267,12 +267,26 @@ usethis::git_sitrep()</code></pre>
 </div>
 <div id="existing-project-github-first" class="section level2">
 <h2>Existing project, GitHub first</h2>
-<p>This is mainly repeating the steps from before for creating the repository and the local folders. After cloning the repo into the local folder one can just copy-paste the files from the existing projects into the newly created folder.</p>
+<p>This is mainly repeating the steps from before for creating the repository on the github website and cloning it to a local folder. After cloning the repo one can just copy-paste the files from the existing projects into the newly created folder.</p>
 <p>After the files are copied, one can marked then im the <em>staged</em> box and <code>commit</code> -&gt; <code>push</code>.</p>
 </div>
 <div id="existing-project-github-last" class="section level2">
 <h2>Existing project, GitHub last</h2>
 <p>This an explicit workflow for connecting an existing local R project to GitHub, when for some reason you cannot or don’t want to do a “GitHub first” workflow.</p>
+<p>When does this come up?</p>
+<p>Example: it’s an existing project that is already a Git repo with a history you care about. Then you have to do this properly.</p>
+<p>Here we have several methods, depending on the fact if we’re using the RStudio IDE and/or the <code>usethis</code> package. It is a straightforward process which can be confusing, but if done in the correct order should cause many problems.</p>
+<ol style="list-style-type: decimal">
+<li>make sure you ahve a local project prepared with RStudio or create one using the <code>usethis::create_project()</code> command. 2. make and verify that you have a git repo with either the RStudio parameters or with the command <code>usethis::git_init()</code>.</li>
+<li>stage and commit</li>
+<li>connect the repo with Github. This can be done with either the command <code>usethis::use_github()</code> or bith the help of the git command, after creating a repo online and copying the path to the repo.</li>
+</ol>
+<pre class="shell"><code>git remote add origin https://github.com/jennybc/myrepo.git
+git push --set-upstream origin main</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>refresh the browser to see, if all went well.</li>
+</ol>
+<p>If not, you can read a more detailed description <a href="https://happygitwithr.com/existing-github-last.html">here</a>.</p>
 </div>
 </div>
 
